@@ -160,13 +160,12 @@ public class WaveSpawner{
                 cons.get(core.x, core.y);
             }
         }
-    }
-
-
-    //apply radius expansion when new wave is spawned
-    if(spawning && state.rules.dropZoneExpansion){
-        dropZoneRadius += expansionPerWave;
-        return dropZoneRadius;
+        
+        //apply radius expansion when new wave is spawned
+        if(spawning && state.rules.dropZoneExpansion){
+           dropZoneRadius += expansionPerWave;
+           return dropZoneRadius;
+        }
     }
 
     public boolean isSpawning(){
