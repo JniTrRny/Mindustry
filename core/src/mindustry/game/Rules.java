@@ -78,8 +78,8 @@ public class Rules{
     public boolean dropZoneExpansion = false;
     /** Drop zones radius expansion per wave */
     public float expansionPerWave = 2f;
-    /** Numbers of "Grace Period" waves before expansion starts */
-    public int expansionGrace = 2;
+    /** Numbers of "Grace Period" waves before expansion starts, float because difficulties reason */
+    public float expansionGrace = 10f;
     /** Drop zone expansion cap to lock maximum expansion */
     public float expansionCap = 200f;
     /** Time between waves in ticks. */
