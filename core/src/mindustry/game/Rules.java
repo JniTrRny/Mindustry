@@ -74,6 +74,10 @@ public class Rules{
     public boolean cleanupDeadTeams = true;
     /** Radius around enemy wave drop zones.*/
     public float dropZoneRadius = 300f;
+    /** If true, drop zones radius will slowly expand x tile(s) per wave */
+    public boolean dropZoneExpansion = false;
+    /** Drop zones radius expansion per wave */
+    public float expansionPerWave = 4f
     /** Time between waves in ticks. */
     public float waveSpacing = 2 * Time.toMinutes;
     /** Wave after which the player 'wins'. Used in sectors. Use a value <= 0 to disable. */
