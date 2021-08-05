@@ -162,10 +162,11 @@ public class WaveSpawner{
         }
     }
 
-    @Override
-    public float dropZoneRadius{
+
     //apply radius expansion when new wave is spawned
-    if(spawning = true && state.rules.dropZoneExpansion == true) return dropZoneRadius + expansionPerWave;
+    if(spawning = true && state.rules.dropZoneExpansion == true){
+        dropZoneRadius += expansionPerWave;
+        return dropZoneRadius;
     }
 
     public boolean isSpawning(){
