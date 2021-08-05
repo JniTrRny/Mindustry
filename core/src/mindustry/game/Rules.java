@@ -81,7 +81,7 @@ public class Rules{
     /** Numbers of "Grace Period" waves before expansion starts, float because difficulties reason */
     public float expansionGrace = 10f;
     /** Drop zone expansion cap to lock maximum expansion */
-    public float expansionCap = 500f;
+    public float expansionCap = 800f;
     /** Time between waves in ticks. */
     public float waveSpacing = 2 * Time.toMinutes;
     /** Wave after which the player 'wins'. Used in sectors. Use a value <= 0 to disable. */
