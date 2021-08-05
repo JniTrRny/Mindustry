@@ -164,7 +164,7 @@ public class WaveSpawner{
 
 
     //apply radius expansion when new wave is spawned
-    if(spawning = true && state.rules.dropZoneExpansion == true){
+    if(spawning && state.rules.dropZoneExpansion){
         dropZoneRadius += expansionPerWave;
         return dropZoneRadius;
     }
