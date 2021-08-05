@@ -77,7 +77,11 @@ public class Rules{
     /** If true, drop zones radius will slowly expand x tile(s) per wave */
     public boolean dropZoneExpansion = false;
     /** Drop zones radius expansion per wave */
-    public float expansionPerWave = 4f;
+    public float expansionPerWave = 2f;
+    /** Numbers of "Grace Period" waves before expansion starts */
+    public float expansionGrace = 10f
+    /** Drop zone expansion cap to lock maximum expansion */
+    public float expansionCap = 200f;
     /** Time between waves in ticks. */
     public float waveSpacing = 2 * Time.toMinutes;
     /** Wave after which the player 'wins'. Used in sectors. Use a value <= 0 to disable. */
