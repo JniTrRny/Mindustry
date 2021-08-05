@@ -162,8 +162,8 @@ public class WaveSpawner{
         }
         
         //apply drop zone radius expansion when new wave is spawned
-        if(spawning && state.rules.dropZoneExpansion && (state.wave -1) > state.rules.expansionGrace){
-            Math.min(state.rules.dropZoneRadius++, state.rules.expansionPerWave);
+        if(spawning && state.rules.dropZoneExpansion && state.wave >= state.rules.expansionGrace){
+            Math.min(state.rules.dropZoneRadius++, state.rules.dropZoneRadius + state.rules.expansionPerWave);
             Math.min(state.rules.dropZoneRadius, state.rules.expansionCap);
         }
     }
