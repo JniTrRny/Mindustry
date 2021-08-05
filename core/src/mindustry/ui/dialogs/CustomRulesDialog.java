@@ -172,9 +172,10 @@ public class CustomRulesDialog extends BaseDialog{
         check("@rules.buildai", b -> rules.teams.get(rules.waveTeam).ai = rules.teams.get(rules.waveTeam).infiniteResources = b, () -> rules.teams.get(rules.waveTeam).ai);
         check("@rules.corecapture", b -> rules.coreCapture = b, () -> rules.coreCapture);
         check("@rules.polygoncoreprotection", b -> rules.polygonCoreProtection = b, () -> rules.polygonCoreProtection);
-        check("@rules.dropzoneexpansion", b -> rules.dropZoneExpansion = b, () -> rules.dropZoneExpansion);
         number("@rules.enemycorebuildradius", f -> rules.enemyCoreBuildRadius = f * tilesize, () -> Math.min(rules.enemyCoreBuildRadius / tilesize, 200), () -> !rules.polygonCoreProtection);
+        check("@rules.dropzoneexpansion", b -> rules.dropZoneExpansion = b, () -> rules.dropZoneExpansion, () -> !rules.polygonCoreProtection);
         number("@rules.expansionperwave", f -> rules.expansionPerWave = f * tilesize, () -> Math.min(rules.expansionPerWave / tilesize, 50), () -> rules.dropZoneExpansion);
+        number("@rules.expansiongrace", f -> rules.expansionGrace = f, () -> rules.expansionGrace, () -> rules.dropZoneExpansion);
 
         title("@rules.title.environment");
         check("@rules.explosions", b -> rules.damageExplosions = b, () -> rules.damageExplosions);
