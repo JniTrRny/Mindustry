@@ -167,8 +167,10 @@ public class WaveSpawner{
         }
         //apply drop zone radius expansion after grace period ended
         if(state.rules.dropZoneExpansion){
-            dropZoneRadiusPlus = dropZoneRadius + (state.rules.expansionPerMinute / 60f);
-            lerpDelta(state.rules.dropZoneRadius, state.rules.dropZoneRadiusPlus, 0.1f);
+            float dropZoneRadiusBack = state.rules.dropZoneRadius;
+            while(state.rules.dropZoneRadius + 0.1 < state.rules.dropZoneRadius + (state.rules.expansionPerMinute / 60)) {
+                lerpDelta(dropZoneRadiusBack, state.rules.dropZoneRadius, 1f);
+            }
             if(state.rules.expansionCapCheck && state.rules.dropZoneRadius > state.rules.expansionCap){
                 state.rules.dropZoneRadius = state.rules.expansionCap;
             }
