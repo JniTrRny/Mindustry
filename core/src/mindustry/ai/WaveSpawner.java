@@ -160,10 +160,13 @@ public class WaveSpawner{
                 cons.get(core.x, core.y);
             }
         }
-        
-        //apply drop zone radius expansion when new wave is spawned
+    }
+    public static float lerpDelta(float fromValue, float toValue, float progress){
+        return lerp(fromValue, toValue, clamp(progress * Time.delta));
+
+        //apply drop zone radius expansion after grace period ended
         if(100000 > state.rules.expansionGrace && state.rules.dropZoneExpansion){
-            Mathf.lerpDelta(state.rules.dropZoneRadius, state.rules.dropZoneRadius + (state.rules.expansionPerMinute / 60f), 3f);
+            Mathf.lerpDelta(state.rules.dropZoneRadius, state.rules.dropZoneRadius + (state.rules.expansionPerMinute / 60f), 0.1f);
             if(state.rules.expansionCapCheck && state.rules.dropZoneRadius > state.rules.expansionCap){
                 state.rules.dropZoneRadius = state.rules.expansionCap;
             }
