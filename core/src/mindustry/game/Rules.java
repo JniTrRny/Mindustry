@@ -76,10 +76,10 @@ public class Rules{
     public float dropZoneRadius = 300f;
     /** If true, drop zones radius will slowly expand x tile(s) per wave */
     public boolean dropZoneExpansion = false;
-    /** Drop zones radius expansion per wave */
-    public float expansionPerWave = 2f;
-    /** Numbers of "Grace Period" waves before expansion starts, float because difficulties reason */
-    public float expansionGrace = 10f;
+    /** Drop zones radius expansion per minute, in tiles */
+    public float expansionPerMinute = 2f;
+    /** Number of "Grace Period" time in second before expansion starts */
+    public float expansionGrace = 10 * Time.toMinutes;
     /** Drop zone expansion cap to lock maximum expansion */
     public float expansionCap = 520f;
     /** Time between waves in ticks. */
