@@ -165,7 +165,7 @@ public class WaveSpawner{
         if(spawning && state.rules.dropZoneExpansion && state.wave >= Math.round(state.rules.expansionGrace)){
             Mathf.lerpDelta(state.rules.dropZoneRadius, state.rules.dropZoneRadius + state.rules.expansionPerWave, 1f);
             if(state.rules.dropZoneRadius + state.rules.expansionPerWave > state.rules.expansionCap){
-                state.rules.dropZoneRadius = state.rules.expansionCap;
+                state.rules.dropZoneRadius = state.rules.dropZoneRadius;
             }
         }
     }
