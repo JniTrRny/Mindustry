@@ -175,7 +175,7 @@ public class CustomRulesDialog extends BaseDialog{
         number("@rules.enemycorebuildradius", f -> rules.enemyCoreBuildRadius = f * tilesize, () -> Math.min(rules.enemyCoreBuildRadius / tilesize, 200), () -> !rules.polygonCoreProtection);
         check("@rules.dropzoneexpansion", b -> rules.dropZoneExpansion = b, () -> rules.dropZoneExpansion, () -> !rules.polygonCoreProtection);
         number("@rules.expansionperminute", f -> rules.expansionPerMinute = f * tilesize, () -> Math.min(rules.expansionPerMinute / tilesize, 100), () -> !rules.polygonCoreProtection && rules.dropZoneExpansion);
-        number("@rules.expansiongrace", f -> rules.expansionGrace = f * 60f, () -> rules.expansionGrace / 60f, () -> !rules.polygonCoreProtection && rules.dropZoneExpansion, 0, Float.MAX_VALUE);
+        number("@rules.expansiongrace", f -> rules.expansionGrace = f * 60f, () -> (rules.expansionGrace / 60f), () -> !rules.polygonCoreProtection && rules.dropZoneExpansion, 0, Float.MAX_VALUE);
 
         title("@rules.title.environment");
         check("@rules.explosions", b -> rules.damageExplosions = b, () -> rules.damageExplosions);
