@@ -2,7 +2,6 @@ package mindustry.ai;
 
 import arc.*;
 import arc.func.*;
-import arc.graphics.*;
 import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.*;
@@ -105,7 +104,12 @@ public class WaveSpawner{
         eachGroundSpawn((x, y, shock) -> cons.get(World.toTile(x), World.toTile(y)));
     }
 
-    private void eachGroundSpawn(SpawnConsumer cons){
+    public static float lerpDelta(float fromValue, float toValue, float progress){
+        return Mathf.lerp(fromValue, toValue, Mathf.clamp(progress * Time.delta));
+    }
+
+
+        private void eachGroundSpawn(SpawnConsumer cons){
         if(state.hasSpawns()){
             for(Tile spawn : spawns){
                 cons.accept(spawn.worldx(), spawn.worldy(), true);
@@ -161,13 +165,10 @@ public class WaveSpawner{
                 cons.get(core.x, core.y);
             }
         }
-    }
-    public static float lerpDelta(float fromValue, float toValue, float progress){
-        return lerp(fromValue, toValue, clamp(progress * Time.delta));
-
         //apply drop zone radius expansion after grace period ended
-        if(100000 > state.rules.expansionGrace && state.rules.dropZoneExpansion){
-            Mathf.lerpDelta(state.rules.dropZoneRadius, state.rules.dropZoneRadius + (state.rules.expansionPerMinute / 60f), 0.1f);
+        if(state.rules.dropZoneExpansion){
+            dropZoneRadiusPlus = dropZoneRadius + (state.rules.expansionPerMinute / 60f)
+            lerpDelta(state.rules.dropZoneRadius, state.rules.dropZoneRadiusPlus, 0.1f);
             if(state.rules.expansionCapCheck && state.rules.dropZoneRadius > state.rules.expansionCap){
                 state.rules.dropZoneRadius = state.rules.expansionCap;
             }
