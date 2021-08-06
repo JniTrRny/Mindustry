@@ -164,7 +164,7 @@ public class WaveSpawner{
         //apply drop zone radius expansion when new wave is spawned
         if(Time.delta > state.rules.expansionGrace && state.rules.dropZoneExpansion){
             Mathf.lerpDelta(state.rules.dropZoneRadius, state.rules.dropZoneRadius + (state.rules.expansionPerMinute / 60f), 0.1f);
-            if(state.rules.dropZoneRadius + (state.rules.expansionPerMinute / 60f) > state.rules.expansionCap){
+            if(state.rules.expansionCapCheck && state.rules.dropZoneRadius > state.rules.expansionCap){
                 state.rules.dropZoneRadius = state.rules.expansionCap;
             }
         }

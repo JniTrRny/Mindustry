@@ -80,7 +80,9 @@ public class Rules{
     public float expansionPerMinute = 2f;
     /** Number of "Grace Period" time in second before expansion starts */
     public float expansionGrace = 10 * Time.toMinutes;
-    /** Drop zone expansion cap to lock maximum expansion */
+    /** If true, enable Drop Zone Cap lock to lock maximum radius size */
+    public boolean expansionCapCheck = true;
+    /** Drop zone expansion cap to lock maximum radius size */
     public float expansionCap = 520f;
     /** Time between waves in ticks. */
     public float waveSpacing = 2 * Time.toMinutes;
